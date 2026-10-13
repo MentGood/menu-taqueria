@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú Digital - Taquería</title>
+    <style>
+        /* Diseño general y colores */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Portada con imagen bonita de tacos */
+        header {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(26, 26, 26, 1)), 
+                        url('https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1200&q=80') center/cover;
+            height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #ff6b6b;
+            font-size: 2.8em;
+            margin: 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
+        }
+
+        /* Diseño de los 3 botones principales */
+        .botones-nav {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            background-color: #1a1a1a;
+            z-index: 100;
+            border-bottom: 2px solid #333;
+        }
+
+        button {
+            background-color: #2d3436;
+            color: #fff;
+            border: 2px solid #ff6b6b;
+            padding: 12px 20px;
+            font-size: 1.1em;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button.activo {
+            background-color: #ff6b6b;
+            color: white;
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+
+        /* Contenedores de cada sección */
+        .seccion-menu {
+            display: none; /* Ocultas por defecto */
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            animation: aparecer 0.4s ease-in-out;
+        }
+
+        .seccion-menu.activa {
+            display: block; /* Solo se muestra la activa */
+        }
+
+        @keyframes aparecer {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Estilo de los platillos y precios */
+        .titulo-seccion {
+            color: #feca57;
+            text-align: center;
+            font-size: 2em;
+            margin-bottom: 25px;
+            border-bottom: 1px dashed #555;
+            padding-bottom: 10px;
+        }
+
+        .platillo {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        .nombre {
+            font-size: 1.2em;
+            font-weight: 500;
+        }
+
+        .precio {
+            color: #1dd1a1;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .nota {
+            font-size: 0.8em;
+            color: #aaa;
+            display: block;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Primera página / Portada -->
+    <header>
+        <h1>Tacos Castillo</h1>
+    </header>
+
+    <!-- Botones Interactivos -->
+    <div class="botones-nav">
+        <button class="boton-tab activo" onclick="cambiarSeccion('tacos', this)">🌮 Tacos</button>
+        <button class="boton-tab" onclick="cambiarSeccion('tortas', this)">🥖 Tortas y Gringas</button>
+        <button class="boton-tab" onclick="cambiarSeccion('bebidas', this)">🥤 Bebidas</button>
+    </div>
+
+    <!-- SECCIÓN: TACOS -->
+    <div id="tacos" class="seccion-menu activa">
+        <h2 class="titulo-seccion">Nuestros Tacos</h2>
+        
+        <div class="platillo"><span class="nombre">Pastor</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Bistec</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Suadero</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Chamorro</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Longaniza</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Costilla</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Campechanos</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Pollo</span><span class="precio">$16</span></div>
+        <div class="platillo"><span class="nombre">Tripa</span><span class="precio">$30</span></div>
+    </div>
+
+    <!-- SECCIÓN: TORTAS Y GRINGAS -->
+    <div id="tortas" class="seccion-menu">
+        <h2 class="titulo-seccion">Tortas y Gringas</h2>
+        
+        <div class="platillo"><span class="nombre">Pastor</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Bistec</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Suadero</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Chamorro</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Longaniza</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Costilla</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Campechanos</span><span class="precio">$85</span></div>
+        <div class="platillo"><span class="nombre">Pollo</span><span class="precio">$85</span></div>
+    </div>
+
+    <!-- SECCIÓN: BEBIDAS -->
+    <div id="bebidas" class="seccion-menu">
+        <h2 class="titulo-seccion">Bebidas Bien Frías</h2>
+        
+        <div class="platillo"><span class="nombre">Boing (Mango, Manzana, Guayaba)</span><span class="precio">$30</span></div>
+        <div class="platillo"><span class="nombre">Coca Cola</span><span class="precio">$30</span></div>
+        <div class="platillo"><span class="nombre">Pepsi</span><span class="precio">$30</span></div>
+        <div class="platillo"><span class="nombre">Sangría</span><span class="precio">$30</span></div>
+        <div class="platillo"><span class="nombre">Mineralita</span><span class="precio">$30</span></div>
+        
+        <div class="platillo" style="flex-direction: column; align-items: flex-start;">
+            <span class="nombre">Agua del Día</span>
+            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 10px;">
+                <span class="nota">Medio Litro</span><span class="precio">$30</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; width: 100%; margin-top: 5px;">
+                <span class="nota">Litro</span><span class="precio">$50</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lógica de interactividad -->
+    <script>
+        function cambiarSeccion(idSeccion, botonPresionado) {
+            // 1. Ocultar todas las secciones
+            let secciones = document.querySelectorAll('.seccion-menu');
+            secciones.forEach(seccion => seccion.classList.remove('activa'));
+
+            // 2. Quitar el color activo de todos los botones
+            let botones = document.querySelectorAll('.boton-tab');
+            botones.forEach(boton => boton.classList.remove('activo'));
+
+            // 3. Mostrar la sección seleccionada y pintar el botón presionado
+            document.getElementById(idSeccion).classList.add('activa');
+            botonPresionado.classList.add('activo');
+        }
+    </script>
+
+</body>
+</html>
